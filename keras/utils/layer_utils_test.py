@@ -754,10 +754,10 @@ class LayerUtilsTest(tf.test.TestCase, parameterized.TestCase):
                     output_file.write(line + "\n")
 
         vocab_base = ["UNK", "a", "b", "c"]
-        vocab_base_file = tempfile.mktemp(".tsv")
+        vocab_base_file = tempfile.mkstemp(".tsv")[1]
         _write_list_to_file(vocab_base_file, vocab_base)
         vocab_new = ["UNK", "UNK", "a", "b", "c", "d", "e"]
-        vocab_new_file = tempfile.mktemp(".tsv")
+        vocab_new_file = tempfile.mkstemp(".tsv")[1]
         vectorized_vocab_base = np.random.rand(len(vocab_base), 3)
         vectorized_vocab_new = np.random.rand(len(vocab_new), 3)
         _write_list_to_file(vocab_new_file, vocab_new)
@@ -781,10 +781,10 @@ class LayerUtilsTest(tf.test.TestCase, parameterized.TestCase):
                     output_file.write(line + "\n")
 
         vocab_base = ["UNK", "a", "b", "c"]
-        vocab_base_file = tempfile.mktemp(".tsv")
+        vocab_base_file = tempfile.mkstemp(".tsv")[1]
         _write_list_to_file(vocab_base_file, vocab_base)
         vocab_new = ["UNK", "UNK", "a", "b", "c", "d", "e"]
-        vocab_new_file = tempfile.mktemp(".tsv")
+        vocab_new_file = tempfile.mkstemp(".tsv")[1]
         vectorized_vocab_base = np.random.rand(len(vocab_base), 3)
         _write_list_to_file(vocab_new_file, vocab_new)
         warmstarted_embedding_matrix = layer_utils.warmstart_embedding_matrix(
